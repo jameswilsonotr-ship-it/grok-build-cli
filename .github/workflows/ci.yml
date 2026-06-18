@@ -32,3 +32,10 @@ jobs:
     - name: Run tests
       run: |
         python -m pytest tests/ -q --tb=no
+
+    - name: Sync Kanban (olivia-dev auto-adjust for sprints)
+      run: |
+        # Placeholder for CI/CD auto-kanban flow
+        # In future: python scripts/kanban-maintain.py --sync-from SCHEDULE.md --update skills/nyxelle/SKILL.md kanban/*.md
+        # This will automatically adjust Nyxelle's kanban and relevant planning files on sprint completion
+        echo "Kanban sync step (auto-adjust for Nyxelle persona and sprints) - to be implemented with olivia-dev discipline"
