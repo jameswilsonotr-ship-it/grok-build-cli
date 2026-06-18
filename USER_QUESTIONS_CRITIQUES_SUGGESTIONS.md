@@ -142,10 +142,27 @@ We are using **JSON-LD** (JSON for Linked Data) with the **schema.org** vocabula
 
 - **Interoperability**: schema.org is the most widely adopted vocabulary on the web. Many systems (search engines, knowledge graphs, other memory/RAG platforms) already understand it.
 - **Linked Data Principles**: By using `@context` pointing to schema.org, our data becomes true linked data. This means entities, relationships, and metadata have precise, globally resolvable meanings.
-- **Future-proofing**: It makes it much easier to integrate with Hippo Camp RAG, other graph memory systems, and future tools without custom mappings for every property.
+- **Future-proofing**: It makes it much easier to integrate with QDRONT, Hippo Camp RAG, other graph memory systems, and future tools without custom mappings for every property.
 - **Rich metadata**: schema.org gives us excellent coverage for creative works, persons, events, and relationships — perfect for our memory chunks.
 
 This choice directly supports our goal of building a portable, sovereign memory system that can talk to many different platforms while staying true to our values.
+
+---
+
+**New Reference Document: MCP Server Post Pre-Ingestion Bridge (June 18)**
+
+A new detailed brainstorm document has been published:
+
+**`reference notes/MCP_SERVER_POST_PRE_INGESTION_BRIDGE.md`**
+
+This file explores:
+- Creating a local/hybrid MCP server right after the pre-ingestion pipeline
+- Exposing freshly processed Stage JSON-L data for review and editing *before* final storage
+- Using it as a hybrid client-server bridge so both the web interface and the Grok Build CLI engine can connect
+- How QDRONT (and other systems) can share the same observability and editing layer
+- Recommended daily vs weekly run cadence with green-lighting for full propagation
+
+This is considered an important architectural idea for making the system controllable, reviewable, and aligned with our values. Please review it when responding.
 
 ---
 
