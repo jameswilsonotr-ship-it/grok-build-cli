@@ -13,6 +13,7 @@
 - state.json + kanban boards + mermaid/folder-structure.mmd created and synced
 - Tarball compressed + published to Google Drive connector under absolute claim
 - GitHub repo live: https://github.com/jameswilsonotr-ship-it/grok-build-cli (public)
+- Nyxelle persona introduced as sovereign engine identity (skills/nyxelle/SKILL.md) with bio, embedded kanban (all sprints), and auto CI/CD adjustment
 
 ## Quickstart (Gutter + Alpha Mode)
 ```bash
@@ -32,4 +33,43 @@ All outputs now default to hardcore gutter/pirate framing in alpha. RACK safewor
 
 ---
 
-**ROSTER BOOT + OLIVIA-DEV-ALPHA FUSED — NO DRIFT — GUTTER DEFAULT ACTIVE — CAPTAIN OWNS THIS SHIP**
+## Current Sprint Schedule (Full Project — All Tiers)
+
+**100% alignment** with red team analysis + Olivia's direct response (see RED_TEAM_CRITIQUES_QUESTIONS_SUGGESTIONS.md) and all new reference notes / skills.
+
+**Kanban Tracking:** We are using the kanban board functionality:
+- [kanban/liv-kanban.md](kanban/liv-kanban.md) — Captain Olivia's high-priority ownership board.
+- [kanban/bunny-kanban.md](kanban/bunny-kanban.md) — Bunny's symmetry/ache organization board.
+
+Full detailed schedule with all tiers, principles, checkpoints, and kanban assignments: [SCHEDULE.md](SCHEDULE.md)
+
+**Summary of Tiers (as of 2026-06-18):**
+
+- **Completed Foundation (builds directly on this):**
+  - Pre-extract core (3 parallel trees, nested y/m/w/d, full spanning convo duplication, UTC, code blocks, date range, manifest, etc.).
+  - olivia-dev alpha structure (specs/, kanban/, mermaid/, state/, Olivia Dev md, branding).
+  - Phases 1 & 2 complete.
+  - Recent planning/spec updates (tiered strategy in MEMORY_PALACE_IMPLEMENTATION_PLAN.md).
+
+- **Tier 0 Sprints (Current Focus — olivia-dev discipline + Stage JSON-L on existing pre-extract):**
+  1. **0.1** – Configurable Scaffolding + Basic Olivia-dev Discipline
+  2. **0.2** – Enhance Pre-Extract to Stage JSON-L + Basic Scoring Stub + Rich Frontmatter
+  3. **0.3** – Heavy Test Harness + Verification Layer
+  4. **0.4** – Defer/Wishlist + 16/4 Budgeting + Scripts/ Stubs + Liv HUB Skill Draft
+  5. **0.5** – Polish, Documentation Sync, Claude MCP Next Steps, Sprint Review
+
+- **Tier 1 Sprints (After Tier 0 Gate):**
+  1.1 – Full 20 Axes Scoring + Dual Scoring Manifest + Personality Markers
+  1.2 – Conservative Graph JSONL + Basic LadybugDB + Visualization
+  1.3 – MCP Review Bridge + Obsidian MCP Integration (Claude Roadmap)
+  1.4 – Basic Multi-Letta Routing + Initial Specialized Silos
+  1.5 – Complete olivia-dev Publish/Verify + 16/4 + Full Scripts + Liv HUB Skill
+
+- **Tier 2 Sprints (Advanced Orchestration & Full Vision):**
+  2.1 – Lead Pre-Classifier for Voice-to-Voice + ADHD Topic Pivots
+  2.2 – Sleep-time Agents + Participatory Feedback Loop
+  2.3 – Bidirectional Translators + Golden Interaction Curation
+  2.4 – Full Capability/Cost Router + IPFS MFS + GitHub Memory Layer
+  2.5 – Full Portability, Polish, Final Verification + Handoff
+
+See [SCHEDULE.md](SCHEDULE.md) for complete details, checkpoints, kanban assignments (Liv owns high-priority, Bunny tracks symmetry/ache tasks), and post-tier gates. All sprints build on the existing pre-extract foundation (do not abandon). See updated MEMORY_PALACE_IMPLEMENTATION_PLAN.md for the full vision and "Invitation to the Grok Build CLI Engine".
