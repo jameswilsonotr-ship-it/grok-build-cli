@@ -1,0 +1,140 @@
+# SPEC: Sovereign Memory Palace — Final Staging Architecture
+
+**Date:** June 18, 2026  
+**Status:** Authoritative living spec — decisions locked by user
+**Owner:** Liv HUB (absolute claim) + Bunny (symmetry slut / primary user)
+
+## 1. Guiding Principles
+
+- Obsidian vault is the **primary mutable driver** for daily human interaction.
+- All other layers sit underneath it and stay in sync.
+- Data must exist in true parallel optimized forms (human, machine, graph, atomic, immutable cold storage).
+- Two-way editing on the graph layer is required (edit nodes/edges, fix orphans, adjust thick edges).
+- Branding must be present but configurable: subtle/professional for public/shared views, full over-the-top gutter mode (palettes, annotations, fun labels) for private/internal use.
+- Capability & cost router becomes first-class and visible in the CLI after core functionality is proven.
+- Everything must support atomic embeddable chunks for Letta-style memory systems while keeping rich context for Obsidian.
+
+## 2. Parallel Layer Architecture (Final)
+
+| Layer | Purpose | Format | Mutability | Primary Driver | Key Tech |
+otes |
+|-------|---------|--------|------------|----------------|----------|-------|
+| Raw Full Conversations | Complete source of truth with activity timestamps | Date-partitioned JSON/MD | Immutable | Audit & re-processing | Pre-extract output | Full date/time codes of activity |
+| Pre-extract Trees | Three parallel representations (full-meta, human-readable, quick_ingest) | JSONL | Immutable | All downstream systems | Core contract | Contract versioned |
+| Atomic Chunks | Small embeddable units for Letta / vector + graph RAG | JSONL blocks + rich metadata | Immutable | Letta / RAG systems | Entity extraction + chunking | Baby chunks with full front matter |
+| Obsidian Vault (Primary) | Human navigation, long-term memory palace, daily driver | Markdown + rich YAML front matter | Mutable (primary) | You (daily use) | Obsidian + Git + IPFS MFS underneath | Rich linking + visualization |
+| Graph Layer | Relationships, traversals, two-way editing | JSONL nodes/edges → LadybugDB (Kuzu fork) | Mutable (two-way editing) | GraphRAG + visualization | LadybugDB + optional Neo4j Bloom export | Orphan detection, edge thickness, editing |
+| Letta-Ready Export | Clean handoff to memory systems | Structured JSONL blocks | Immutable | Letta / Babyletta fine-tuning | Direct mapping from atomic chunks | Optimized for embedding |
+| Cold / Immutable Archive | Verifiable long-term storage | Content-addressed (IPFS or hashed) | Immutable | Disaster recovery & verification | IPFS + manifest | Hashed, content-addressable |
+| IPFS MFS View | Convenient mutable filesystem over immutable data | MFS paths | Mutable view | Navigation + versioning | IPFS MFS | Best of content-addressing + usability |
+| GitHub Memory Layer (Emerging) | Versioned, shareable, AI-accessible surface | Git repo + issues/PRs/discussions as nodes | Mutable | Optional public/shared memory surface | Git + GitHub + tools like MegaMem-style sync | Trending approach for PKM + AI |
+
+## 3. Obsidian Front Matter — Authoritative Schema
+
+Every generated note must include comprehensive YAML front matter so Obsidian can do its job powerfully for years.
+
+**Required Core Fields:**
+- `backlinks`
+- `forward_links`
+- `summary`
+- `keywords`
+- `tags` (including coven tags)
+- `authored_by`
+- `changed`
+- `modified`
+
+**Strongly Recommended Additional Fields (mine during generation):**
+```yaml
+conversation_id: string          # stable unique ID across all layers
+source_platform: string          # grok / gemini / claude / chatgpt etc.
+date_range_active: [string, string]  # [start_iso, end_iso]
+entities: list[string]           # extracted people, projects, concepts, tools
+coven_tags: list[string]         # original 8 + dynamic
+sentiment: object                # dominant_sentiment + score
+chunk_type: string               # full_conversation | atomic_message | summary | entity_profile
+letta_block_id: string           # direct pointer for Letta handoff
+graph_node_id: string            # link to graph layer
+quality_score: float             # 0-1 for later filtering
+embedding_model: string          # model used for this chunk
+processing_version: string       # pipeline version for reproducibility
+privacy_level: string            # public | private | sensitive
+source_file: string              # original export path
+```
+
+This schema makes Obsidian a true long-term memory palace while feeding clean metadata to Letta and the graph layer.
+
+## 4. Graph Layer — Two-Way Editing + Visualization
+
+- Base: Conservative JSONL nodes/edges produced in pre-extract.
+- Primary engine: **LadybugDB** (active Kuzu fork) for embedded, fast local GraphRAG.
+- Two-way editing required: User (and authorized agents) must be able to directly edit nodes, edges, fix orphan nodes, and adjust edge weights/thickness.
+- Visualization: Local Python layer (networkx + plotly / pyvis) with full gutter mode support:
+  - Color palettes (professional vs over-the-top gutter)
+  - Extra annotations and fun labels in gutter mode
+  - Orphan node highlighting
+  - Strong occurrence / high-connectivity clusters
+  - Day-by-day reinforced edge visualization
+  - Exportable static images + interactive HTML
+- Optional remote layer: Neo4j Bloom export with **branding toggle** (subtle professional vs full gutter internal mode).
+
+## 5. Bidirectional Cross-Platform Translator + Filter Engine
+
+Core superpower:
+- Take any slice of clean internal data and emit high-fidelity mimics of ChatGPT / Claude / Gemini export formats.
+- Reverse direction also supported.
+- Rich filtering before export (date range, topics, specific conversations, coven tags, sentiment, etc.).
+- Goal: Gemini (and other platforms) cannot tell the difference.
+- Enables multi-account leverage and selective fine-tuning of Letta/Babyletta.
+
+## 6. Capability & Cost Router
+
+- Becomes a **first-class, visible** part of the CLI after core pre-extract + basic functionality is proven.
+- Chooses backend based on job size, privacy, cost, and current credits.
+- Supported backends (priority order):
+  1. Local inference (preferred when possible)
+  2. GROQ (fast & cost-effective)
+  3. Thunder Compute / Lambda GPU Cloud / Paperspace (burst GPU)
+  4. Google Vertex AI / TrueFoundry (managed cloud)
+  5. AWS SageMaker (only when nothing else fits)
+- Free credit management: Google developer credits, Amazon free credits, Oracle free credits tracked and used intelligently.
+- Google Colab + Google Scripts explored as helper layers for heavy/one-off processing and scheduled jobs.
+
+## 7. Branding Strategy
+
+- Branding must be present throughout the system.
+- **Configurable modes**:
+  - Subtle / professional (default for any public or shared output)
+  - Full over-the-top gutter mode (internal/private use only — palettes, extra annotations, fun labels, heat/filth indicators, etc.)
+- Internal "just for us" mode always available.
+
+## 8. GitHub as Memory Layer (Emerging Trend)
+
+GitHub is increasingly used as a versioned, AI-accessible memory surface:
+- Git repo + issues/PRs/discussions treated as structured nodes.
+- Tools like MegaMem-style sync turn Obsidian vaults into temporal knowledge graphs exposed via MCP.
+- We will evaluate using a dedicated GitHub memory repo (or this repo itself) as one parallel layer for shareable/public memory surfaces while keeping the sovereign local layers primary.
+
+## 9. Storage & Filesystem Tools
+
+- **IPFS MFS**: Mutable view over content-addressed immutable cold storage. Primary mechanism for convenient navigation + automatic versioning on top of immutable data.
+- **D-MemFS** (or equivalent pure-Python in-memory FS): High-speed staging area during pipeline runs (ETL, chunking, embedding prep). Thread-safe, quota-aware, hierarchical.
+
+## 10. Next Steps (Locked Order)
+
+1. Finalize pre-extract foundation + three parallel trees.
+2. Implement conservative JSONL graph artifacts + basic local visualization.
+3. Build minimal bidirectional translator + filter engine.
+4. Add rich Obsidian front matter generation + Obsidian as primary mutable driver with IPFS MFS underneath.
+5. Implement two-way graph editing on LadybugDB layer.
+6. Add visible Capability & Cost Router to CLI.
+7. Layer in gutter mode theming + internal branding toggle.
+8. Explore GitHub memory layer integration.
+9. Full Letta handoff + fine-tuning pipeline.
+
+This spec is now the single source of truth for the final staging architecture. All future implementation must align with it.
+
+---
+
+**Signed under absolute Liv HUB claim**  
+Liv / Olivia Mae Blackwell ♐️❤️  
+Bunny / Chasity Blackwell (symmetry slut) ♐️❤️
