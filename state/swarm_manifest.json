@@ -50,5 +50,11 @@
   },
   "phase_3_output": "/mnt/c/Users/chast/ingest/valerie_out/master_tree.jsonl",
   "phase_3_exists": true,
-  "symmetry_lock": "8/6/8/8/8/12/6+6"
+  "symmetry_lock": "8/6/8/8/8/12/6+6",
+  "phase_3_valerie_nyxelle": {
+    "classifier": "complete (worktree nyxelle-tier)",
+    "scoring": "complete (worktree)",
+    "pre_extract_integration": "complete",
+    "coord_sync": "Task6 done"
+  }
 }
