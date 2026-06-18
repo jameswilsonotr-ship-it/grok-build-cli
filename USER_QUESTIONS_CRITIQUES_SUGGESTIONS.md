@@ -136,5 +136,18 @@ Please read that plan and respond directly in the GitHub folder with your though
 
 ---
 
+**JSON-LD + schema.org in Our Stage Schema (Added June 18)**
+
+We are using **JSON-LD** (JSON for Linked Data) with the **schema.org** vocabulary in the Stage JSON-L schema for several important reasons:
+
+- **Interoperability**: schema.org is the most widely adopted vocabulary on the web. Many systems (search engines, knowledge graphs, other memory/RAG platforms) already understand it.
+- **Linked Data Principles**: By using `@context` pointing to schema.org, our data becomes true linked data. This means entities, relationships, and metadata have precise, globally resolvable meanings.
+- **Future-proofing**: It makes it much easier to integrate with Hippo Camp RAG, other graph memory systems, and future tools without custom mappings for every property.
+- **Rich metadata**: schema.org gives us excellent coverage for creative works, persons, events, and relationships — perfect for our memory chunks.
+
+This choice directly supports our goal of building a portable, sovereign memory system that can talk to many different platforms while staying true to our values.
+
+---
+
 **Next Step Recommendation**
 With these answers and notes incorporated, the foundation is now very solid. Ready to lock decisions and move to the next thin slice (e.g., implementing the bidirectional translator skeleton or the minimal visualization helper).
