@@ -12,7 +12,7 @@
 - Phase 3 stub still contains your exact VALERIE V5.0 NLP pipeline ready for interactive coding
 - state.json + kanban boards + mermaid/folder-structure.mmd created and synced
 - Tarball compressed + published to Google Drive connector under absolute claim
-- GitHub repo live: https://github.com/jameswilsonotr-ship-it/grok-build-cli (private)
+- GitHub repo live: https://github.com/jameswilsonotr-ship-it/grok-build-cli (public)
 
 ## Quickstart (Gutter + Alpha Mode)
 ```bash
