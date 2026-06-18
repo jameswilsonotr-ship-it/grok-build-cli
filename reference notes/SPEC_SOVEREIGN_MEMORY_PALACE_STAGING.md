@@ -16,8 +16,7 @@
 
 ## 2. Parallel Layer Architecture (Final)
 
-| Layer | Purpose | Format | Mutability | Primary Driver | Key Tech |
-otes |
+| Layer | Purpose | Format | Mutability | Primary Driver | Key Tech | Notes |
 |-------|---------|--------|------------|----------------|----------|-------|
 | Raw Full Conversations | Complete source of truth with activity timestamps | Date-partitioned JSON/MD | Immutable | Audit & re-processing | Pre-extract output | Full date/time codes of activity |
 | Pre-extract Trees | Three parallel representations (full-meta, human-readable, quick_ingest) | JSONL | Immutable | All downstream systems | Core contract | Contract versioned |
@@ -119,7 +118,58 @@ GitHub is increasingly used as a versioned, AI-accessible memory surface:
 - **IPFS MFS**: Mutable view over content-addressed immutable cold storage. Primary mechanism for convenient navigation + automatic versioning on top of immutable data.
 - **D-MemFS** (or equivalent pure-Python in-memory FS): High-speed staging area during pipeline runs (ETL, chunking, embedding prep). Thread-safe, quota-aware, hierarchical.
 
-## 10. Next Steps (Locked Order)
+## 10. Multi-Letta Architecture & Orchestration (Updated June 18)
+
+**Communication**: Letta instances and the orchestration layer will communicate primarily via **MCP (Model Context Protocol)** where possible, with ACP as fallback.
+
+**Orchestration Model**:
+- The routing/orchestration layer can itself be a specialized **Letta memory manager agent**.
+- Individual Letta instances function as **specialized silos** (e.g., one heavily dialed into Rachel-domain + chitty-chatty, another on technical/systems, another on emotional/identity work).
+- Instances are not fully isolated; they can share context via MCP when appropriate, but each stays focused on its narrow domain for performance and coherence.
+
+**ADHD & Topic Pivoting**:
+- A **lead voice-to-voice pre-classifier orchestrator** (Letta-based or lightweight) will sit in front of voice interactions.
+- Its jobs:
+  - Detect topic pivots within a single conversation (user has ADHD and frequently shifts topics rapidly).
+  - Straighten and route rambling input to the most appropriate specialized Letta instance or the main orchestrator.
+  - Maintain silky-smooth voice experience on the backend (implementation details out of scope for this spec).
+
+**Sleep-time Agents**:
+- Heavy use of Letta’s sleep-time compute / sleep-time agents for asynchronous memory consolidation, reflection, and cross-instance coherence.
+- These run in the background to keep specialized silos aligned without blocking real-time interaction.
+
+**Self-hosted MCP Server**:
+- At the end of the project we will deploy our own **MCP server** so that memories (and the graph layer) can be served, searched, and queried by:
+  - Local instances (Jetson, voice rig, etc.)
+  - Remote access (web interface, other devices)
+  - Authorized external agents
+
+This creates a sovereign, queryable memory service layer on top of the entire palace.
+
+## 11. Golden Interaction Curation (Updated June 18)
+
+We will curate approximately 200 high-signal "golden interactions" from the full conversational history (~1,400 conversations) for use as reference data in fine-tuning, few-shot guidance, and pre-deployment memory ingestion (especially for the graph layer’s initial golden rules).
+
+Mining will be **deterministic** where possible (leveraging the ingestion pipeline we are building) rather than relying solely on semantic search.
+
+**12 Clear Axes for Golden Interactions**:
+
+1. **Emotional Vulnerability & Depth** — Moments of raw honesty, fear, longing, or deep feeling.
+2. **Technical Problem-Solving & Systems Thinking** — Clear, high-quality technical reasoning, debugging, or architecture discussions.
+3. **Roleplay Consistency & Chemistry** — Strong, coherent, heat-aware roleplay exchanges that maintain character and dynamic.
+4. **Consent, Boundaries & RACK Ethics** — Exemplary handling of consent, safewords, negotiation, and ethical power exchange.
+5. **Long-term Memory Coherence** — Interactions that demonstrate or benefit from strong continuity across sessions/days.
+6. **Humor, Playfulness & Gutter Energy** — High-signal funny, filthy, or delightfully chaotic exchanges.
+7. **Practical Life Support (ADHD, Family, Logistics)** — Helpful, grounded support around real-world challenges, especially ADHD management and family duty.
+8. **Creative Brainstorming & World-Building** — Rich, generative creative sessions (stories, songs, world concepts, visuals).
+9. **Identity & Transition Journey** — Thoughtful, supportive, or insightful moments around identity, transition, and self-understanding.
+10. **Relationship Dynamics & Symmetry** — Interactions that explore or embody symmetry, nesting, breeding ache, or deep relational patterns.
+11. **Trucking / Operational Context** — Real-world trucking life, routes, challenges, and how it intersects with the memory system.
+12. **Meta / Memory System Reflection** — Conversations about the memory palace itself, the project, or how the system should work.
+
+These 12 axes give broad, balanced coverage. We will mine deterministically across them and present you with candidates for final selection.
+
+## 12. Next Steps (Locked Order)
 
 1. Finalize pre-extract foundation + three parallel trees.
 2. Implement conservative JSONL graph artifacts + basic local visualization.
@@ -129,7 +179,11 @@ GitHub is increasingly used as a versioned, AI-accessible memory surface:
 6. Add visible Capability & Cost Router to CLI.
 7. Layer in gutter mode theming + internal branding toggle.
 8. Explore GitHub memory layer integration.
-9. Full Letta handoff + fine-tuning pipeline.
+9. Design and prototype Multi-Letta architecture with MCP communication and sleep-time agents.
+10. Build lead voice-to-voice pre-classifier orchestrator (topic pivot handling + routing).
+11. Deploy self-hosted MCP server for memory serving/querying.
+12. Curate golden interactions across the 12 axes and use for pre-deployment memory ingestion / fine-tuning references.
+13. Full Letta handoff + fine-tuning pipeline.
 
 This spec is now the single source of truth for the final staging architecture. All future implementation must align with it.
 
