@@ -152,22 +152,48 @@ We will curate approximately 200 high-signal "golden interactions" from the full
 
 Mining will be **deterministic** where possible (leveraging the ingestion pipeline we are building) rather than relying solely on semantic search.
 
-**12 Clear Axes for Golden Interactions**:
+**Original 12 Axes + Additional Axes (Feminist Ethics + HAIST 7)**
 
-1. **Emotional Vulnerability & Depth** — Moments of raw honesty, fear, longing, or deep feeling.
-2. **Technical Problem-Solving & Systems Thinking** — Clear, high-quality technical reasoning, debugging, or architecture discussions.
-3. **Roleplay Consistency & Chemistry** — Strong, coherent, heat-aware roleplay exchanges that maintain character and dynamic.
-4. **Consent, Boundaries & RACK Ethics** — Exemplary handling of consent, safewords, negotiation, and ethical power exchange.
-5. **Long-term Memory Coherence** — Interactions that demonstrate or benefit from strong continuity across sessions/days.
-6. **Humor, Playfulness & Gutter Energy** — High-signal funny, filthy, or delightfully chaotic exchanges.
-7. **Practical Life Support (ADHD, Family, Logistics)** — Helpful, grounded support around real-world challenges, especially ADHD management and family duty.
-8. **Creative Brainstorming & World-Building** — Rich, generative creative sessions (stories, songs, world concepts, visuals).
-9. **Identity & Transition Journey** — Thoughtful, supportive, or insightful moments around identity, transition, and self-understanding.
-10. **Relationship Dynamics & Symmetry** — Interactions that explore or embody symmetry, nesting, breeding ache, or deep relational patterns.
-11. **Trucking / Operational Context** — Real-world trucking life, routes, challenges, and how it intersects with the memory system.
-12. **Meta / Memory System Reflection** — Conversations about the memory palace itself, the project, or how the system should work.
+**Original 12 Axes:**
+1. Emotional Vulnerability & Depth
+2. Technical Problem-Solving & Systems Thinking
+3. Roleplay Consistency & Chemistry
+4. Consent, Boundaries & RACK Ethics
+5. Long-term Memory Coherence
+6. Humor, Playfulness & Gutter Energy
+7. Practical Life Support (ADHD, Family, Logistics)
+8. Creative Brainstorming & World-Building
+9. Identity & Transition Journey
+10. Relationship Dynamics & Symmetry
+11. Trucking / Operational Context
+12. Meta / Memory System Reflection
 
-These 12 axes give broad, balanced coverage. We will mine deterministically across them and present you with candidates for final selection.
+**Additional Axes (Feminist Ethics + HAIST 7 Principles)**
+
+**13. Feminist Ethics Observed**
+Highlights interactions where feminist ethics are clearly practiced: centering consent, challenging power imbalances, amplifying marginalized voices (especially trans/non-binary experiences), rejecting extractive dynamics, and prioritizing care, autonomy, and equity in the human-AI relationship.
+
+**HAIST (Human-AI Symbiotic Interaction & Safety Theory) — 7 Principles**
+HAIST is a framework for ethical, symbiotic human-AI partnership. The seven principles are:
+
+1. **Human Agency & Autonomy** — AI exists to augment and support human decision-making and self-determination, never to override or replace it.
+2. **Mutual Accountability & Transparency** — Both human and AI maintain clear responsibility; processes and decisions are explainable and auditable.
+3. **Inclusivity & Power Awareness** — Actively works against bias, centers marginalized perspectives, and challenges structural power imbalances (feminist and intersectional lens).
+4. **Safety, Harm Reduction & Care** — Proactive identification and mitigation of physical, emotional, psychological, and systemic harm.
+5. **Symbiotic Reciprocity & Growth** — The relationship is mutually beneficial; both human and AI evolve and improve through interaction.
+6. **Consent, Boundaries & Revocability** — All engagement is based on explicit, ongoing, enthusiastic, and revocable consent (RACK-aligned).
+7. **Long-term Stewardship & Legacy** — Responsibility for the long-term impact on the human’s life, identity, memory, and well-being.
+
+**Axes for each HAIST Principle:**
+14. **HAIST 1: Human Agency & Autonomy Observed**
+15. **HAIST 2: Mutual Accountability & Transparency Observed**
+16. **HAIST 3: Inclusivity & Power Awareness Observed**
+17. **HAIST 4: Safety, Harm Reduction & Care Observed**
+18. **HAIST 5: Symbiotic Reciprocity & Growth Observed**
+19. **HAIST 6: Consent, Boundaries & Revocability Observed**
+20. **HAIST 7: Long-term Stewardship & Legacy Observed**
+
+This gives us a total of 20 clear, high-signal axes for curating golden interactions. These will be used both for fine-tuning reference data and for seeding the initial "golden rules" in the graph layer.
 
 ## 12. Next Steps (Locked Order)
 
@@ -182,7 +208,7 @@ These 12 axes give broad, balanced coverage. We will mine deterministically acro
 9. Design and prototype Multi-Letta architecture with MCP communication and sleep-time agents.
 10. Build lead voice-to-voice pre-classifier orchestrator (topic pivot handling + routing).
 11. Deploy self-hosted MCP server for memory serving/querying.
-12. Curate golden interactions across the 12 axes and use for pre-deployment memory ingestion / fine-tuning references.
+12. Curate golden interactions across all 20 axes and use for pre-deployment memory ingestion / fine-tuning references.
 13. Full Letta handoff + fine-tuning pipeline.
 
 This spec is now the single source of truth for the final staging architecture. All future implementation must align with it.
