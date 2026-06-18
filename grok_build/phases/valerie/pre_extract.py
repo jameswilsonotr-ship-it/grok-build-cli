@@ -33,6 +33,13 @@ Cross-platform format support (Grok + Claude/ChatGPT/Gemini) as additional pass.
 Fun characters (bunny & olivia) write the comments.
 
 This is the foundation for graph retrieval, area of expertise, Letta, backups, etc.
+
+NYXELLE EXTENSION (Task 4):
+- Classifier + scoring called during _write_full_convo for ingest tree.
+- Fields added: classification, scores to normalized.
+- Manifest updated with versions.
+- All original 3 trees + spanning + UTC + code_blocks behavior 100% preserved.
+Claimed under absolute Liv HUB. Symmetry lock. Flavor on.
 """
 
 from datetime import datetime, timezone
@@ -43,6 +50,10 @@ import os
 import re
 
 from grok_build.core.paths import PROD_GROK, VALERIE_PRE_EXTRACT
+
+# Nyxelle engines - classifier and scoring (Tasks 2/3 complete, 4 integration)
+from . import classifier
+from . import scoring
 
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
@@ -168,6 +179,17 @@ def _ensure_parallel_trees(base: Path, day: str) -> Dict[str, Path]:
     return trees
 
 
+def _extract_text(convo: dict) -> str:
+    """Local helper for scoring. Mirrors harvest patterns."""
+    parts = []
+    for resp in convo.get("responses", []):
+        r = resp.get("response", resp)
+        msg = r.get("message", "")
+        if msg:
+            parts.append(msg)
+    return " ".join(parts)
+
+
 def _write_full_convo(trees: Dict[str, Path], convo: dict, day: str):
     """Write the full conversation to all three parallel trees for this day."""
     cid = convo.get("conversation", {}).get("id", "unknown")
@@ -185,9 +207,23 @@ def _write_full_convo(trees: Dict[str, Path], convo: dict, day: str):
         msg = r.get("response", {}).get("message", "")
         sender = r.get("response", {}).get("sender", "unknown")
         human_text += f"**{sender}**: {msg}\n\n"
+
+    # === NYXELLE: CLASSIFIER + SCORING INTEGRATION (ingest focus) ===
+    # Compute here so we can optionally enrich human summary too.
+    classification = classifier.classify(convo)
+    score_text = _extract_text(convo)
+    scores = scoring.score(score_text, classification.get("tags", []))
+
+    # Optionally enrich human with compact summary (per plan "extend the human readable with summary")
+    human_text += (
+        f"\n\n---\n**Classification (Nyxelle)**: tags={classification.get('tags')} "
+        f"sentiment={classification.get('sentiment')} areas={classification.get('areas')}\n"
+        f"**Scores (Nyxelle)**: quality={scores.get('overall_quality')} "
+        f"personality={scores.get('grok_personality_markers')}\n"
+    )
     human_path.write_text(human_text)
 
-    # quick ingest (normalized)
+    # quick ingest (normalized)  <--- PRIMARY INTEGRATION POINT for ingest tree
     ingest_path = trees["ingest"] / safe_name
     normalized = {
         "conversation_id": cid,
@@ -202,7 +238,15 @@ def _write_full_convo(trees: Dict[str, Path], convo: dict, day: str):
             "text": r.get("response", {}).get("message"),
             "timestamp": _utc_now(),
         })
+
+    # Nyxelle sovereign addition: classifier + scoring to normalized
+    # Add fields to normalized dict for the ingest tree.
+    normalized["classification"] = classification
+    normalized["scores"] = scores
+
     ingest_path.write_text(json.dumps(normalized, ensure_ascii=False))
+
+    # Note: raw tree remains untouched full convo. Human gets summary. Ingest gets full fields.
 
 
 def extract_code_blocks(convo: dict, base: Path, day: str):
@@ -266,6 +310,11 @@ def run_pre_extract(
 
             if day not in manifest["extracted_days"]:
                 manifest["extracted_days"].append(day)
+
+    # Nyxelle: Update manifest with classifier/scoring versions (Task 4)
+    manifest["classifier_version"] = classifier.classify({"conversation": {}, "responses": []})["classifier_version"]
+    manifest["scoring_version"] = scoring.score("", [])["scoring_version"]
+    # Keep spanning/3-trees intact: no structural change to extracted_days or trees.
 
     (base / "manifest.json").write_text(json.dumps(manifest, indent=2))
     print(f"Pre-extract complete. Days: {len(manifest['extracted_days'])}")
