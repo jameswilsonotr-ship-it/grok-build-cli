@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-06-18T04:12:35.357418",
+  "exported_at": "2026-06-18T16:32:10.000000",
   "project": "grok-build-cli",
   "symmetry_lock": "8/6/8/8/8/12/6+6",
   "paths": {
@@ -14,5 +14,12 @@
     "overlap_matrix": "/mnt/c/Users/chast/ingest/state/overlap_matrix.json",
     "redteam_report": "/mnt/c/Users/chast/ingest/state/redteam_report.json"
   },
-  "irt_ready": true
+  "irt_ready": true,
+  "valerie_engines": {
+    "classifier_version": "0.1",
+    "scoring_version": "0.1-nyxelle",
+    "pre_extract_integration": "complete",
+    "nyxelle_worktree": "/tmp/grok-worktrees/nyxelle-tier"
+  },
+  "coord_report_ref": "nyxelle-coordination-report.md"
 }
