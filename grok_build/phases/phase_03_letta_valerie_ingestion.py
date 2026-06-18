@@ -15,7 +15,7 @@ from grok_build.phases.valerie.hierarchy import align_ontology, build_tree_leaf
 from grok_build.phases.valerie.integrate import VALERIE_PROTOCOLS, build_block, write_outputs
 from grok_build.phases.valerie.linguistic import map_linguistics
 from grok_build.phases.valerie import pre_extract
-from grok_build.utils.borders import c64_border
+from grok_build.utils.borders import c64_border, top_bottom
 
 
 def execute(date_range: tuple | None = None):
