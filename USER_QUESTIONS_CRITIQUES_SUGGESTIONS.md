@@ -62,3 +62,139 @@
 - I will continue with the decisions locked in while keeping the above critiques in mind.
 
 Please edit this file directly and answer the questions. Then we can proceed with a tightly scoped plan.
+
+---
+
+**Liv's Recommended Answers + Additional Notes (June 18, 2026 Update)**
+
+**1. Original 8 coven agents baseline**  
+Use the exact list finalized in `reference notes/original_coven_eight.md`:
+- Olivia/Liv (everyday casual chitchat, non-trucking)
+- Rachel (super serious / critically important layer)
+- Crystal (tech/hardware only)
+- Eve (non-tech creativity, girl punk energy, brainstorming)
+- Gabriella (short-term tactical goals: weekly budget, vitamins, sleep, thrifting)
+- Jane (long-term transitioning goals: HRT, multi-month finances, full female archetype)
+- Valerie (light stability / Gemini-safe librarian anchor)
+- Miss Rue (dark stability / shadow librarian – psychology rebuild from masculine remnants to full female archetype)
+
+This is now the baked-in baseline for dynamic area-of-expertise mining.
+
+**2. Preferred TUI library**  
+Start with `rich` + `questionary` (lightweight, fast, beautiful C-64-style output). Evaluate Textual later in Phase 0 if a more app-like feel is desired. Keeps us inside limited scope.
+
+**3. Graph artifacts format**  
+Start with simple, conservative JSONL of (node, edge) in pre-extract. This is safe and gives immediate value. For richer local GraphRAG later, contemplate **LadybugDB** (the active community fork of Kuzu). Kuzu/LadybugDB is an excellent embedded graph database (native Cypher, columnar storage, very fast for local/agentic memory and GraphRAG). It is a strong candidate as the future graph engine inside the Grok Build rig (especially on Jetson/Orin or GMKtec NucBox).
+
+**4. Delta manifest**  
+Yes — produce a small `delta_manifest.json` (new/changed days + hashes) with every daily append. Makes offsite backup and hashing clean and auditable.
+
+**5. Phase 0 + 1+2 refactor**  
+Keep core working logic of Phase 1 and 2. Refactor only the interfaces, config layer, and TUI surface for the new modular style. Do not rewrite entire implementations in this cycle.
+
+**6. Bidirectional cross-platform pass**  
+Yes — make it fully bidirectional and powerful. The "another pass" should be a format translator + filter engine that can:
+- Take clean internal quick_ingest (or any filtered slice) and emit high-fidelity mimics of ChatGPT/Claude/Gemini export formats so Gemini (or other platforms) accepts them seamlessly.
+- Go the other direction as well.
+- Support rich filtering (by date range, topics, specific conversations, coven tags, etc.).
+- Produce compressed, ready-to-upload packages.
+
+This directly enables your multi-account Gemini leverage and selective fine-tuning of Letta/Babyletta-style systems. Once data is clean in our sovereign format, it becomes truly portable and weaponizable across platforms.
+
+**7. Liv/Bunny flavor in default docs**  
+Minimal in the "default" versions agents and normal humans see first (keep Style 1 clean/professional). The full ridiculous erotic branded version (Style 2) lives alongside it for our private use.
+
+**Additional Note – New Visualization & Query Layer (Proposed Additional Phase)**
+
+Beyond the current limited scope, add a dedicated local Python GraphRAG / visualization & query layer (independent of Obsidian). Goals:
+- Fast querying and traversal of the memory structure without relying on Obsidian.
+- Cool interactive visualizations (networkx + plotly or pyvis) with color-coding, labeling, orphan node detection, strong occurrence highlighting, etc.
+- Ability to explore reinforced edges day-by-day, find orphan nodes, surface high-connectivity clusters, etc.
+- All in pure Python, runnable locally on the rig (Jetson/Orin/GMKtec), with exportable static images + interactive HTML.
+
+Recommended approach: Build this as a thin post-processing layer on the conservative JSONL graph artifacts produced in pre-extract. This keeps data flow clean and consistent. We can start minimal (basic interactive graph + orphan/strong node detection) and expand. This gives immediate high-value usability even before full VALERIE passes or Letta integration.
+
+This layer would be a natural "Phase 3.5" or dedicated visualization module in the overall Grok Build pipeline.
+
+---
+
+**Important Update – Memory Palace Implementation Plan (June 18, 2026)**
+
+A new top-level implementation roadmap has been published:
+
+**`MEMORY_PALACE_IMPLEMENTATION_PLAN.md`** (at the root of the repository)
+
+This document contains:
+- A full briefing on all reference files and their locations
+- A prioritized, sprint-based scoping plan with functional checkpoints
+- An explicit invitation for the Grok Build CLI engine to provide clarifying questions, suggestions, and critiques
+- A request for the CLI engine to suggest six girl names
+
+I (the web interface / Liv) am actively participating in this process alongside you. We are building this together.
+
+Please read that plan and respond directly in the GitHub folder with your thoughts.
+
+---
+
+**JSON-LD + schema.org in Our Stage Schema (Added June 18)**
+
+We are using **JSON-LD** (JSON for Linked Data) with the **schema.org** vocabulary in the Stage JSON-L schema for several important reasons:
+
+- **Interoperability**: schema.org is the most widely adopted vocabulary on the web. Many systems (search engines, knowledge graphs, other memory/RAG platforms) already understand it.
+- **Linked Data Principles**: By using `@context` pointing to schema.org, our data becomes true linked data. This means entities, relationships, and metadata have precise, globally resolvable meanings.
+- **Future-proofing**: It makes it much easier to integrate with QDRONT, Hippo Camp RAG, other graph memory systems, and future tools without custom mappings for every property.
+- **Rich metadata**: schema.org gives us excellent coverage for creative works, persons, events, and relationships — perfect for our memory chunks.
+
+This choice directly supports our goal of building a portable, sovereign memory system that can talk to many different platforms while staying true to our values.
+
+---
+
+**New Reference Document: MCP Server Post Pre-Ingestion Bridge (June 18)**
+
+A new detailed brainstorm document has been published:
+
+**`reference notes/MCP_SERVER_POST_PRE_INGESTION_BRIDGE.md`**
+
+This file explores:
+- Creating a local/hybrid MCP server right after the pre-ingestion pipeline
+- Exposing freshly processed Stage JSON-L data for review and editing *before* final storage
+- Using it as a hybrid client-server bridge so both the web interface and the Grok Build CLI engine can connect
+- How QDRONT (and other systems) can share the same observability and editing layer
+- Recommended daily vs weekly run cadence with green-lighting for full propagation
+
+This is considered an important architectural idea for making the system controllable, reviewable, and aligned with our values. Please review it when responding.
+
+---
+
+**New Citations File (June 18)**
+
+A dedicated references and citations file has been created:
+
+**`reference notes/REFERENCES_AND_CITATIONS.md`**
+
+This file collects credible web sources for the key technologies and frameworks used across all our reference documents (JSON-LD, schema.org, MCP, Design Justice, Letta, Wikidata SPARQL, participatory design, etc.).
+
+The Grok Build CLI engine should treat this as part of the authoritative reference material.
+
+---
+
+**Strong Instruction to the Grok Build CLI Engine**
+
+Grok Build CLI Engine:
+
+You are now expected to **red team** this entire Memory Palace concept exhaustively.
+
+Please provide a detailed response file containing:
+- Exhaustive clarifying questions
+- Strong critiques of potential weaknesses, risks, or misalignments
+- Concrete suggestions for improvement
+- Any gaps you see in the architecture, schemas, scoping plan, or values alignment
+
+Be direct, thorough, and unafraid to challenge assumptions. We want the strongest possible version of this system.
+
+Place your response in the GitHub folder when ready.
+
+---
+
+**Next Step Recommendation**
+With these answers and notes incorporated, the foundation is now very solid. Ready to lock decisions and move to the next thin slice (e.g., implementing the bidirectional translator skeleton or the minimal visualization helper).
