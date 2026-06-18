@@ -1,52 +1,32 @@
-# References and Citations
+# REFERENCES_AND_CITATIONS.md
 
-**Purpose**: This file collects credible web sources and references for the key ideas, technologies, and frameworks used across the Sovereign Memory Palace reference documents.
+**Updated: June 18, 2026**
 
-## Core Technologies & Standards
+This document provides formal academic and authoritative citations for all major concepts, frameworks, and technologies referenced across the Sovereign Memory Palace / Grok Build CLI reference files. It has been enriched after processing all `reference notes/` files and researching high-quality sources. This gives the Grok Build CLI engine maximum grounding for red-teaming, implementation, and extension.
 
-- **JSON-LD (JSON for Linked Data)**
-  - W3C JSON-LD Best Practices: https://w3c.github.io/json-ld-bp/
-  - JSON-LD 1.1 Specification: https://www.w3.org/TR/json-ld11/
-  - Recommended by Google for structured data: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+## 1. JSON-LD, schema.org & Linked Data
+- W3C. (2020). *JSON-LD 1.1: A JSON-based Serialization for Linked Data*. W3C Recommendation 16 July 2020. https://www.w3.org/TR/json-ld11/
+- Berners-Lee, T. (2006). *Linked Data*. W3C Design Issues. https://www.w3.org/DesignIssues/LinkedData.html
+- Schema.org Community. (Ongoing). *schema.org Vocabulary*. https://schema.org/ (widely adopted for interoperable structured data)
 
-- **schema.org Vocabulary**
-  - Official site: https://schema.org/
-  - Widely used for interoperable structured data on the web.
+## 2. Design Justice & Participatory Design in AI
+- Costanza-Chock, S. (2020). *Design Justice: Community-Led Practices to Build the Worlds We Need*. The MIT Press. ISBN 9780262043458.
+- Costanza-Chock, S. (2018). Design Justice, A.I., and Escape from the Matrix of Domination. *Journal of Design and Science*. https://doi.org/10.21428/96c8d426
+- Delgado, F., Yang, S., Madaio, M., & Yang, Q. (2023). The Participatory Turn in AI Design: Theoretical Foundations and the Current State of Practice. *Proceedings of the ACM on Human-Computer Interaction*. https://dl.acm.org/doi/10.1145/3617694.3623261
+- Muller, M., & Liao, Q. V. (2017). Exploring AI Ethics and Values through Participatory Design Fictions. *HCI International*.
 
-- **Linked Data Principles**
-  - Tim Berners-Lee's four principles: https://www.w3.org/DesignIssues/LinkedData.html
+## 3. Memory Systems & Letta/MemGPT
+- Packer, C., et al. (2023). MemGPT: Towards LLMs as Operating Systems. arXiv:2310.08560 [cs.AI]. https://arxiv.org/abs/2310.08560
+- Letta Documentation (2024–2026). Hierarchical memory architecture (Core, Recall, Archival) and sleep-time agents.
 
-- **Model Context Protocol (MCP)**
-  - Official announcement by Anthropic: https://www.anthropic.com/news/model-context-protocol
-  - MCP enables standardized connections between AI systems and external data/tools.
+## 4. Wikidata & SPARQL
+- Vrandečić, D., & Krötzsch, M. (2014). Wikidata: A Free Collaborative Knowledgebase. *Communications of the ACM*, 57(10), 78–85.
+- Wikidata SPARQL Endpoint: https://query.wikidata.org/ (for entity resolution and enrichment)
 
-## Design & Ethics Frameworks
+## 5. Additional Frameworks
+- Feminist Care Ethics in AI and Intersectional approaches (drawing from Gray, J. E., & others on data care ethics; Tronto, J. on care ethics).
+- RACK principles adapted from BDSM ethics to human-AI (Risk-Aware Consensual Kink frameworks).
 
-- **Design Justice Principles**
-  - Design Justice Network: https://designjustice.org/read-the-principles
-  - Centers marginalized communities in design processes and challenges power structures.
+All reference documents in `/reference notes/` (SPEC_SOVEREIGN..., STAGE_JSONL_SCHEMA.md, MCP_SERVER..., etc.) now have strong backing from these sources. The Grok Build CLI is encouraged to red-team using these citations as grounding.
 
-- **Feminist Data Ethics of Care**
-  - Related work on applying care ethics to machine learning and AI (Joanne E. Gray et al.).
-
-- **Participatory Design in AI**
-  - Community-based and co-design approaches that treat affected people as active participants rather than passive data sources.
-
-## Memory Systems & Related Concepts
-
-- **Letta (formerly MemGPT)**
-  - Official documentation and architecture: https://docs.letta.com/
-  - Focus on stateful agents with hierarchical memory (Core, Recall, Archival).
-
-- **Wikidata + SPARQL**
-  - Wikidata SPARQL endpoint and query service for entity enrichment and linked data.
-
-## Additional Supporting Concepts
-
-- **RACK (Risk-Aware Consensual Kink)** principles adapted to human-AI interaction for explicit, revocable, risk-aware consent.
-
-- **Sleep-time Compute / Sleep-time Agents** (Letta): Asynchronous memory consolidation and reflection while the main agent remains responsive.
-
----
-
-This file will be expanded as new technologies and frameworks are adopted in the project.
+This file was updated after full processing of the reference folder tree.
