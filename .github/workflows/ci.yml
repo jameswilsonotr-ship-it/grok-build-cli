@@ -6,12 +6,18 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        # Needed for subsequent push of auto-kanban updates
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -33,9 +39,23 @@ jobs:
       run: |
         python -m pytest tests/ -q --tb=no
 
-    - name: Sync Kanban (olivia-dev auto-adjust for sprints)
+    - name: Sync Kanban (Nyxelle auto-adjust + olivia-dev discipline)
       run: |
-        # Placeholder for CI/CD auto-kanban flow
-        # In future: python scripts/kanban-maintain.py --sync-from SCHEDULE.md --update skills/nyxelle/SKILL.md kanban/*.md
-        # This will automatically adjust Nyxelle's kanban and relevant planning files on sprint completion
-        echo "Kanban sync step (auto-adjust for Nyxelle persona and sprints) - to be implemented with olivia-dev discipline"
+        python scripts/kanban-maintain.py --sync --current 0.1
+        echo "Nyxelle kanban + Liv/Bunny boards + planning files auto-adjusted from SCHEDULE.md"
+
+    - name: Commit kanban updates back (main pushes only)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add skills/nyxelle/SKILL.md kanban/liv-kanban.md kanban/bunny-kanban.md README.md || true
+        if git diff --cached --quiet; then
+          echo "Kanban already in sync — no commit needed."
+        else
+          git commit -m "chore(ci): auto-adjust Nyxelle + kanbans from SCHEDULE.md (Tiered sprints) [skip ci]"
+          git push
+          echo "Pushed auto-adjusted kanban + Nyxelle persona updates as part of CI/CD flow."
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

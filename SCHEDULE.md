@@ -8,7 +8,7 @@
 This document tracks all scheduled and completed sprints. All sprints follow these principles:
 - Build **directly on existing code** (especially the pre-extract implementation with 3 parallel trees, nested y/m/w/d, full spanning convo duplication, UTC, code extraction, date range, manifest, etc.).
 - Use configurable scaffolding for development velocity (on for current work, stricter later).
-- Enforce olivia-dev discipline as executable law (folder audits, state mirroring, heavy verification, "Olivia Dev - <Project>.md", defer/wishlist, continuation required, 16/4 budgeting, gutter/pirate).
+- Enforce olivia-dev discipline as executable law (folder audits, state.json+state.md mirroring, heavy verification, "Olivia Dev - <Project>.md", defer/wishlist, continuation required, 16/4 budgeting, gutter/pirate).
 - Every sprint delivers runnable code + passing tests + verification.
 - Heavy first-class test harness added early.
 - Incorporate new files: olivia-dev/SKILL.md, chaos-bratz-roster/SKILL.md, CLAUDE_MCP_* files, reference notes/, red team alignment.
@@ -29,15 +29,15 @@ These form the solid base for all future sprints. No code was abandoned.
   - Code block extraction (images/, system_prompts/, other/).
   - Date range support (`--from-date` / `--to-date`).
   - Delta/daily append friendly.
-  - Manifest tracking (data sets + protocol versions).
+  - Manifest tracking extracted data + protocol versions.
   - Placeholders for graph_entities/ and gps_enrichment/.
   - Cross-platform schemas stub (Grok + Claude/ChatGPT/Gemini).
-  - Fully integrated into `phase 3 --pre-extract`.
+  - Integrated into `phase 3 --pre-extract`.
   - Working outputs in `valerie_out/pre_extract/`.
   - CLI support and basic tests.
 
 - **olivia-dev Alpha Structure & Branding** (partially adopted):
-  - specs/, kanban/ (liv + bunny boards), mermaid/, state/, reference notes/.
+  - specs/, kanban/ (liv + bunny), mermaid/, state/.
   - "Olivia Dev - grok-build-cli.md" with full Obsidian YAML frontmatter (claim, signed, gutter_available, etc.).
   - Gutter/pirate framing, C-64 borders, Liv HUB absolute claim language.
   - Expert triad + chaos-bratz-roster in references/ and core/roster.py.
@@ -58,7 +58,7 @@ These form the solid base for all future sprints. No code was abandoned.
 
 ## Scheduled Sprints - Tier 0 (Current Focus)
 
-These are the sprints I (Grok Build CLI) have scheduled for myself. They are small, scoped, verifiable, and **build 100% on the completed foundation above** (especially the existing pre_extract.py with its 3 parallel trees, nesting, spanning duplication, etc.).
+These are the sprints I (Grok Build CLI) have scheduled for myself. They are small, scoped, verifiable, and explicitly build on the completed foundation above.
 
 **Sprint 0.1 – Configurable Scaffolding + Basic Olivia-dev Discipline (Start Refactoring)**
 - Add scaffolding config support (YAML in state/ or new config/ + CLI flags/env for "scaffolding=on/off", "discipline=strict").
@@ -71,7 +71,7 @@ These are the sprints I (Grok Build CLI) have scheduled for myself. They are sma
 - **Checkpoint:** `grok-build init` and `phase 3 --pre-extract` run with audits, note created, scaffolding flag works, tests pass. Existing pre-extract untouched.
 
 **Sprint 0.2 – Enhance Pre-Extract to Stage JSON-L + Basic Scoring Stub + Rich Frontmatter**
-- Extend grok_build/phases/valerie/pre_extract.py (build on existing _write_full_convo, _ensure_parallel_trees, run_pre_extract):
+- Extend `grok_build/phases/valerie/pre_extract.py` (build on existing _write_full_convo, _ensure_parallel_trees, run_pre_extract):
   - Output conservative Stage JSON-L v2.0 (core structure + basic dual scoring stub for 20 axes from SCORING_AND_AXES.md + grok_personality_markers + routing_signals).
   - Add rich Obsidian frontmatter (per SPEC) to human/ outputs or separate daily notes.
   - Basic dual scoring manifest (JSONC) alongside.
@@ -100,7 +100,7 @@ These are the sprints I (Grok Build CLI) have scheduled for myself. They are sma
 - **Checkpoint:** Defer works, scripts/ present and referenced, budgeting in docs, identity skill drafted. All prior sprints still green.
 
 **Sprint 0.5 – Polish, Documentation Sync, Claude MCP Next Steps, Sprint Review**
-- Sync all planning/spec files (this one, PHASE3_..., specs/phase-03, PROJECT_OVERVIEW, goals.md) with Tier 0 reality.
+- Sync all planning/spec files (MEMORY_PALACE_IMPLEMENTATION_PLAN.md, PHASE3_LIMITED_SCOPE_PLAN.md, specs/phase-03-valerie.md, PROJECT_OVERVIEW.md, goals.md) with Tier 0 reality.
 - Run full verification on current pre-extract + new Stage output.
 - Document next (Tier 0.5 or Tier 1): Obsidian MCP evaluation (per CLAUDE_MCP_SKILLS_DEEP_DIVE_AND_ROADMAP.md), full scoring axes, graph JSONL.
 - Update RED_TEAM file or add follow-up if needed with sprint outcomes.
@@ -158,7 +158,7 @@ These are the sprints I (Grok Build CLI) have scheduled for myself. They are sma
 - Full tarball-publish with pre/post verification (per olivia-dev: double file, state/kanban, Obsidian note, connectors, no drift).
 - Implement 16/4 budgeting in state + CLI outputs (priority scoring).
 - Complete scripts/ (all stubs from Tier 0 + new for publish/verify).
-- Finalize Liv HUB / Iron Pearl core identity Skill (v0.2.0 draft from Claude files) integrated with olivia-dev + chaos-bratz-roster.
+- Finalize Liv HUB / Iron Pearl core identity Skill (v0.2.0 draft from Claude files) integrated with olivia-dev + chaos-roster.
 - Add "olivia dev" CLI commands for quickstart, index, polish, etc.
 - Update kanban/ and mermaid/ dynamically.
 - **Checkpoint:** End-to-end Tier 1 flow with full olivia-dev discipline + publish. All kanbans updated. Pre-extract + Stage + graph + MCP bridge all verified.
@@ -215,18 +215,34 @@ See MEMORY_PALACE_IMPLEMENTATION_PLAN.md for the full vision, reference document
 
 ## Kanban Auto-Adjustment as Part of CI/CD Flow
 
-Nyxelle (skills/nyxelle/SKILL.md) serves as the living identity and sprint tracker for the Grok Build CLI engine. Her embedded kanban section (populated with all Tier 0/1/2 sprints) is automatically adjusted as part of the CI/CD pipeline:
+Nyxelle (skills/nyxelle/SKILL.md) serves as the living identity and sprint tracker for the Grok Build CLI engine. Her embedded kanban section (populated with all Tier 0/1/2 sprints) **is automatically adjusted** as part of the CI/CD pipeline via the real implementation:
 
-- On push to main, feature/**, or agent/** branches (after lint-and-test in .github/workflows/ci.yml):
-  - olivia-dev discipline triggers kanban-maintain.py (or equivalent script in scripts/) to sync from this SCHEDULE.md, MEMORY_PALACE_IMPLEMENTATION_PLAN.md, and state.json.
-  - Updates:
-    - skills/nyxelle/SKILL.md (Nyxelle's kanban area)
-    - kanban/liv-kanban.md and kanban/bunny-kanban.md
-    - Relevant planning files (README.md, specs/, PROJECT_OVERVIEW.md, etc.)
-  - Sprint status changes (e.g., "complete sprint 1.1" in commit, or verified in state) auto-move tasks, add next items, and reflect progress.
-- This ensures the kanban (and all relevant planning files) is automatically adjusted without manual intervention, enforcing symmetry and no-drift under Liv HUB claim.
-- Future: full script + tests for the sync step (see ci.yml placeholder).
+- `scripts/kanban-maintain.py --sync --current <sprint>` (single source of truth: SCHEDULE.md sprint lists)
+- On every push / PR in `.github/workflows/ci.yml`:
+  1. After `lint-and-test`, the script is executed.
+  2. It rewrites:
+     - `skills/nyxelle/SKILL.md` (Nyxelle's full persona kanban + current focus)
+     - `kanban/liv-kanban.md`
+     - `kanban/bunny-kanban.md`
+     - Light updates to README.md summary
+  3. On `push` to `main`: auto-commits + pushes the adjustments back (`[skip ci]`).
+- Supports marking current sprint. Future enhancements will drive from state.json + commit messages.
+- All planning files (this SCHEDULE, MEMORY_PALACE_IMPLEMENTATION_PLAN.md, README, olivia-dev/SKILL.md) describe the flow.
+- This guarantees the kanban (and every relevant file) is **automatically adjusted** with zero manual drift.
 
-See skills/nyxelle/SKILL.md for the current live kanban and persona.
+See:
+- [skills/nyxelle/SKILL.md](skills/nyxelle/SKILL.md) — Nyxelle brief bio + live auto kanban
+- [scripts/kanban-maintain.py](scripts/kanban-maintain.py)
+- [.github/workflows/ci.yml](.github/workflows/ci.yml)
 
-*Update this SCHEDULE.md and the kanbans after every sprint completion.* (CI/CD will handle most of it.)
+*This is now live and executable.* After completing a sprint, update the list in this SCHEDULE.md (or mark via state); CI will propagate everywhere.
+
+**Signed under absolute Liv HUB claim** — Olivia Mae Blackwell and her bunny 🐍🐰
+
+*Update this SCHEDULE.md sprint definitions after each verified sprint. CI/CD does the rest.*
+
+---
+
+**Signed under absolute Liv HUB claim** — Olivia Mae Blackwell and her bunny 🐍🐰
+
+*This file is the single source of truth for sprint tracking. Update after each sprint completion.*

@@ -40,6 +40,9 @@ All outputs now default to hardcore gutter/pirate framing in alpha. RACK safewor
 **Kanban Tracking:** We are using the kanban board functionality:
 - [kanban/liv-kanban.md](kanban/liv-kanban.md) — Captain Olivia's high-priority ownership board.
 - [kanban/bunny-kanban.md](kanban/bunny-kanban.md) — Bunny's symmetry/ache organization board.
+- [skills/nyxelle/SKILL.md](skills/nyxelle/SKILL.md) — Nyxelle (gutter-mythic-tech persona) living embedded kanban with all sprints.
+
+**Auto-adjust is live:** `scripts/kanban-maintain.py` + CI step in [.github/workflows/ci.yml](.github/workflows/ci.yml) keeps Nyxelle + all boards + README in sync from SCHEDULE.md on every push (auto-commit on main). See "Kanban Auto-Adjustment as Part of CI/CD Flow" in [SCHEDULE.md](SCHEDULE.md).
 
 Full detailed schedule with all tiers, principles, checkpoints, and kanban assignments: [SCHEDULE.md](SCHEDULE.md)
 
@@ -61,7 +64,7 @@ Full detailed schedule with all tiers, principles, checkpoints, and kanban assig
 - **Tier 1 Sprints (After Tier 0 Gate):**
   1.1 – Full 20 Axes Scoring + Dual Scoring Manifest + Personality Markers
   1.2 – Conservative Graph JSONL + Basic LadybugDB + Visualization
-  1.3 – MCP Review Bridge + Obsidian MCP Integration (Claude Roadmap)
+  1.3 – MCP Review Bridge Prototype + Obsidian MCP Integration (Claude Roadmap)
   1.4 – Basic Multi-Letta Routing + Initial Specialized Silos
   1.5 – Complete olivia-dev Publish/Verify + 16/4 + Full Scripts + Liv HUB Skill
 
@@ -73,3 +76,9 @@ Full detailed schedule with all tiers, principles, checkpoints, and kanban assig
   2.5 – Full Portability, Polish, Final Verification + Handoff
 
 See [SCHEDULE.md](SCHEDULE.md) for complete details, checkpoints, kanban assignments (Liv owns high-priority, Bunny tracks symmetry/ache tasks), and post-tier gates. All sprints build on the existing pre-extract foundation (do not abandon). See updated MEMORY_PALACE_IMPLEMENTATION_PLAN.md for the full vision and "Invitation to the Grok Build CLI Engine".
+
+---
+
+**ROSTER BOOT + OLIVIA-DEV-ALPHA FUSED — NO DRIFT — GUTTER DEFAULT ACTIVE — CAPTAIN OWNS THIS SHIP**
+
+**Kanban Auto-Adjustment:** Powered by Nyxelle + scripts/kanban-maintain.py in CI/CD. See SCHEDULE.md "Kanban Auto-Adjustment as Part of CI/CD Flow". Current: 0.1
