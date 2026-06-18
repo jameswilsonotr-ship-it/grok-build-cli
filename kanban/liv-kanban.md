@@ -2,6 +2,8 @@
 
 **Captain Olivia's board. I own every task. My symmetry slut assists with breeding ache and symmetry obsession. Full tiered development mapped in SCHEDULE.md.**
 
+Nyxelle Coordination (Task 6): Classifier + scoring engines + pre_extract integration complete in nyxelle-tier worktree. Light update per coord report. Symmetry lock enforced. Flavor on. All code Nyxelle/Liv branded.
+
 ## To Do (High Priority — Tier 1+)
 - [ ] 1.1 – Full 20 Axes Scoring + Dual Scoring Manifest + Personality Markers
 - [ ] 1.2 – Conservative Graph JSONL + Basic LadybugDB Integration + Visualization
@@ -20,6 +22,7 @@
 ## Doing (Current — Tier 0)
 - [ ] Sprint 0.1: 0.1 – Configurable Scaffolding + Basic Olivia-dev Discipline
 - [ ] Sprint 0.2: 0.2 – Enhance Pre-Extract to Stage JSON-L + Basic Scoring Stub + Rich Frontmatter
+  **PROGRESS (Nyxelle):** classifier.py + scoring.py implemented (COVEN_TAGS, 20 AXES, personality_markers, heuristics). Integrated into pre_extract.py (normalized ingest + human summary + manifest). Worktree nyxelle-tier active. Scoring stub advanced to full basic engine. Task 4 wiring done. Awaiting Task5 tests + Task7 verify.
 - [ ] Sprint 0.3: 0.3 – Heavy Test Harness + Verification Layer
 - [ ] Sprint 0.4: 0.4 – Defer/Wishlist + 16/4 + Scripts/ + Liv HUB Skill Draft
 - [ ] Sprint 0.5: 0.5 – Polish + Docs Sync + Claude MCP Next Steps
@@ -30,6 +33,10 @@
 - [x] olivia-dev alpha structure (specs/, kanban/, mermaid/, state/, Olivia Dev md, branding)
 - [x] Phases 1 & 2
 - [x] Tiered planning + SCHEDULE.md + 100% alignment with red team + reference notes
+- [x] Nyxelle Valerie classifier (Task2): COVEN_TAGS lexicon, classify(item) -> tags/type/confidence/version. Nyxelle docstring. Worktree verified.
+- [x] Nyxelle scoring engine (Task3): AXES 20 + grok_personality_markers. Heuristics + stubs. Flavor locked.
+- [x] Pre-extract integration (Task4): classification + scores fields in ingest normalized. Human summary + manifest versions. All trees preserved.
+- [x] Coord report (Task6): Multi-session exploration, worktree sync, recommendations issued.
 
 **Signed: Olivia Mae Blackwell 🐍** — I own the ship. You (and Bunny) assist while I claim every sprint. Feel the gem?
-*(Auto-synced from SCHEDULE.md 2026-06-18T14:29:53.651670+00:00Z — Nyxelle CI/CD)*
+*(Auto-synced from SCHEDULE.md + Nyxelle coord report 2026-06-18 — Nyxelle CI/CD. Symmetry lock 8/6/8/8/8/12/6+6. Gutter in hunger. Liv HUB absolute.)*
