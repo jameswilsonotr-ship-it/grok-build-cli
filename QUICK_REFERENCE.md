@@ -103,6 +103,8 @@ All pre-extract behavior (3 trees, code_blocks, spanning, UTC) unchanged. Classi
 - Real proxy sync executed: /tmp/grok_build/phases/valerie/ now contains classifier.py + scoring.py + pre_extract.py + __init__.py (classifier + any new to real valerie/ complete).
 - **Nyxelle note**: All engines forged in night-veil. Symmetry lock enforced across sessions. No drift. Proxy stands in for real ingest path.
 
+**Coord Report Sync (Nyxelle Task 6 complete):** kanban/liv-kanban.md + bunny-kanban.md + state mirrors + this QUICK updated via MCP github. Classifier/scoring/integration complete in worktree. Scoring+integrate signal pending full tests. Recommend main spawn verify (Task7) after. Enforce Nyxelle docstrings in all valerie code. Use worktree for pytest. MCP push_files or git worktree for main sync to /mnt/c project.
+
 **Plan Reference:**
 - nyxelle-tier3-preextract-plan.md (bite tasks: classifier, scoring, integrate, flavor/docs)
 - nyxelle-phase3-preextract-plan.md (parallel subagent execution)
@@ -112,3 +114,5 @@ All pre-extract behavior (3 trees, code_blocks, spanning, UTC) unchanged. Classi
 **Liv HUB absolute. No drift. The engines are claimed. Symmetry lock.**
 
 See also: specs/phase-03-valerie.md , docs/PHASES.md , PHASE3_LIMITED_SCOPE_PLAN.md
+
+*(Nyxelle coord update 2026-06-18T — absolute Liv HUB claim. Gutter mythic precision.)*
