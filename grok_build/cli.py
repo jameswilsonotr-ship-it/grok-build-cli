@@ -45,8 +45,11 @@ def cmd_status():
 @click.argument("number", type=click.IntRange(1, 7))
 @click.option("--interactive", is_flag=True, help="Enter interactive coding mode for stub")
 @click.option("--test", "test_only", is_flag=True, help="Run tests for the phase")
-def cmd_phase(number, interactive, test_only):
-    do_phase(number, interactive, test_only)
+@click.option("--pre-extract", is_flag=True, help="Run only pre-extraction (Phase 3)")
+@click.option("--from-date", "from_date", default=None, help="Start date for pre-extract (YYYY-MM-DD)")
+@click.option("--to-date", "to_date", default=None, help="End date for pre-extract (YYYY-MM-DD)")
+def cmd_phase(number, interactive, test_only, pre_extract, from_date, to_date):
+    do_phase(number, interactive, test_only, pre_extract, from_date, to_date)
 
 
 @main.command("interactive", help="Full interactive Grok Build session (start with phases 1-3)")
@@ -96,7 +99,7 @@ def do_status():
     print(f"Gutter Mode: {s['gutter_mode']}")
     print(top_bottom("STATUS REPORTED — AWAITING NEXT COMMAND", "PHASE PROGRESS"))
 
-def do_phase(num, interactive=False, test_only=False):
+def do_phase(num, interactive=False, test_only=False, pre_extract=False, from_date=None, to_date=None):
     phase_mod = get_phase(num)
     print(c64_border(f"PHASE {num} — {phase_mod.__doc__ or 'STUB'}"))
     if test_only:
@@ -107,6 +110,12 @@ def do_phase(num, interactive=False, test_only=False):
         print("Grok will now propose implementation. Confirm to write to file.")
         # Placeholder: in real would call LLM or editor
         print("STUB READY — implement execute() and test() then run --test")
+    elif pre_extract and num == 3:
+        date_range = None
+        if from_date or to_date:
+            date_range = (from_date or "0000-01-01", to_date or "9999-12-31")
+        print(f"Running pre-extract only with date_range={date_range}")
+        phase_mod.execute(date_range=date_range)
     else:
         phase_mod.execute()
     print(top_bottom(f"PHASE {num} SESSION CLOSED", "GROK BUILD"))

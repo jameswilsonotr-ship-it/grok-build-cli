@@ -27,7 +27,11 @@ def execute(date_range: tuple | None = None):
     pre_root = pre_extract.run_pre_extract(date_range=date_range)
     print(f"Pre-extraction root: {pre_root}")
     print("Paused at extraction level by design. Passes would run next on the quick-ingest tree.")
-    # For now we stop here to honor "pause at extraction". Full passes after pre-extract can be added.
+
+    if date_range is not None:
+        # Limited scope: stop after pre-extract when date range provided via --pre-extract
+        print(top_bottom("PRE-EXTRACT COMPLETE", "GROK BUILD"))
+        return
 
     # Old monolithic path (kept for compatibility during transition)
     items = list(iter_conversations())
