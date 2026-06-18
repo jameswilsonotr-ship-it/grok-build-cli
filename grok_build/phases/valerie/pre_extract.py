@@ -126,30 +126,44 @@ def _synthetic() -> dict:
     }
 
 
-def _ensure_day_tree(base: Path, day: str) -> Dict[str, Path]:
-    """Create the three parallel trees + artifact folders for a day."""
+def _ensure_parallel_trees(base: Path, day: str) -> Dict[str, Path]:
+    """Create parallel trees for the three representations + artifacts.
+    Structure:
+    pre_extract/
+      raw/
+        YYYY/
+          MM/
+            weekWW/
+              YYYY-MM-DD/
+                ...
+      human/
+        ...
+      ingest/
+        ...
+      code_blocks/
+        ...
+    """
     y, m, d = day.split("-")
-    # week calculation simple (approximate)
     dt = datetime.strptime(day, "%Y-%m-%d")
     week = dt.isocalendar()[1]
+    week_str = f"week{week:02d}"
 
-    day_path = base / y / m / f"week{week:02d}" / day
-    day_path.mkdir(parents=True, exist_ok=True)
+    day_rel = Path(y) / m / week_str / day
 
-    trees = {
-        "raw": day_path / "raw",
-        "human": day_path / "human",
-        "ingest": day_path / "ingest",
-    }
-    for t in trees.values():
-        t.mkdir(exist_ok=True)
+    trees = {}
+    for rep in ["raw", "human", "ingest"]:
+        day_path = base / rep / day_rel
+        day_path.mkdir(parents=True, exist_ok=True)
+        trees[rep] = day_path
 
-    # specialized
-    (day_path / "code_blocks" / "images").mkdir(parents=True, exist_ok=True)
-    (day_path / "code_blocks" / "system_prompts").mkdir(parents=True, exist_ok=True)
-    (day_path / "code_blocks" / "other").mkdir(parents=True, exist_ok=True)
-    (day_path / "graph_entities").mkdir(exist_ok=True)
-    (day_path / "gps_enrichment").mkdir(exist_ok=True)
+    # Code and other artifacts at top level under pre_extract/
+    code_dir = base / "code_blocks"
+    (code_dir / "images").mkdir(parents=True, exist_ok=True)
+    (code_dir / "system_prompts").mkdir(parents=True, exist_ok=True)
+    (code_dir / "other").mkdir(parents=True, exist_ok=True)
+
+    (base / "graph_entities").mkdir(exist_ok=True)
+    (base / "gps_enrichment").mkdir(exist_ok=True)
 
     return trees
 
@@ -186,14 +200,13 @@ def _write_full_convo(trees: Dict[str, Path], convo: dict, day: str):
         normalized["messages"].append({
             "sender": r.get("response", {}).get("sender"),
             "text": r.get("response", {}).get("message"),
-            "timestamp": _utc_now(),  # placeholder, use real if present
+            "timestamp": _utc_now(),
         })
     ingest_path.write_text(json.dumps(normalized, ensure_ascii=False))
 
 
-def extract_code_blocks(convo: dict, day_path: Path):
-    """Pull code blocks into specialized folders. Very sparse for most types."""
-    # simplistic extraction
+def extract_code_blocks(convo: dict, base: Path, day: str):
+    """Pull code blocks into parallel code_blocks/ structure."""
     code_found = []
     for r in convo.get("responses", []):
         msg = r.get("response", {}).get("message", "")
@@ -201,14 +214,20 @@ def extract_code_blocks(convo: dict, day_path: Path):
             code_found.append(msg)
 
     if code_found:
+        y, m, d = day.split("-")
+        dt = datetime.strptime(day, "%Y-%m-%d")
+        week = dt.isocalendar()[1]
+        day_rel = Path(y) / m / f"week{week:02d}" / day
+
         for i, c in enumerate(code_found):
-            # crude classification
             if "image" in c.lower() or "png" in c.lower() or "draw" in c.lower():
-                (day_path / "code_blocks" / "images" / f"code_{i}.txt").write_text(c)
+                target = base / "code_blocks" / "images" / day_rel / f"code_{i}.txt"
             elif "system" in c.lower() or "prompt" in c.lower() or "persona" in c.lower():
-                (day_path / "code_blocks" / "system_prompts" / f"code_{i}.txt").write_text(c)
+                target = base / "code_blocks" / "system_prompts" / day_rel / f"code_{i}.txt"
             else:
-                (day_path / "code_blocks" / "other" / f"code_{i}.txt").write_text(c)
+                target = base / "code_blocks" / "other" / day_rel / f"code_{i}.txt"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(c)
 
 
 def run_pre_extract(
@@ -235,20 +254,15 @@ def run_pre_extract(
         for day in active_days:
             if day == "unknown":
                 continue
-            # respect date_range if provided
             if date_range:
                 start, end = date_range
                 if not (start <= day <= end):
                     continue
 
-            trees = _ensure_day_tree(base, day)
-            _write_full_convo(trees, item, day)   # full convo goes into every active day
+            trees = _ensure_parallel_trees(base, day)
+            _write_full_convo(trees, item, day)
 
-            # code extraction uses the day folder
-            y, m, d = day.split("-")
-            week = datetime.strptime(day, "%Y-%m-%d").isocalendar()[1]
-            day_dir = base / y / m / f"week{week:02d}" / day
-            extract_code_blocks(item, day_dir)
+            extract_code_blocks(item, base, day)
 
             if day not in manifest["extracted_days"]:
                 manifest["extracted_days"].append(day)

@@ -62,8 +62,15 @@ tests/output/
 # Large data source (never commit the 1GB export)
 prod-grok-backend.json
 
-# Valerie Phase 3 generated artifacts (keep structure, ignore big generated content if needed)
-valerie_out/pre_extract/
+# Generated large artifacts - we keep structure but can ignore data if too big
+valerie_out/pre_extract/**/*.json
+valerie_out/pre_extract/**/*.md
+valerie_out/pre_extract/**/*.txt
+# But for now allow small ones for progress; adjust later
+
+# Keep the pre_extract structure for git but ignore very large per-day files if needed
+# valerie_out/pre_extract/
+
 valerie_out/*.jsonl
 valerie_out/daily_enriched/
 
@@ -75,3 +82,4 @@ grok_build.egg-info/
 .vscode/
 .idea/
 *.swp
+prod-grok-backend.json
