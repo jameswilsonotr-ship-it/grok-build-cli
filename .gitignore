@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtualenv
+.venv
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env & secrets
+.env
+.env.*
+*.pem
+*.key
+secrets/
+
+# Drive partitions (sovereign rule)
+RAW_BACKUPS/
+WORKING_BRAIN/
+artifacts/large/
+*.tar.gz
+*.zip
+
+# Grok Build specific
+state.json
+phase_progress.json
+*.log
+grok_build.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp test outputs
+tests/output/
+
+# Large data source (never commit the 1GB export)
+prod-grok-backend.json
+
+# Valerie Phase 3 generated artifacts (keep structure, ignore big generated content if needed)
+valerie_out/pre_extract/
+valerie_out/*.jsonl
+valerie_out/daily_enriched/
+
+# Python packaging
+grok_build.egg-info/
+*.egg-info/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
