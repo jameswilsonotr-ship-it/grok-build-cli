@@ -1,0 +1,25 @@
+{
+  "findings": [
+    {
+      "file": "valerie_out/daily_enriched/2026-06-11.jsonl",
+      "severity": "warn",
+      "type": "email"
+    },
+    {
+      "file": "WORKING_BRAIN/letta/handoffs/2026-06-11.json",
+      "severity": "warn",
+      "type": "email"
+    }
+  ],
+  "critical_count": 0,
+  "warn_count": 2,
+  "raw_backups_write_violation": false,
+  "phase_rollup": {
+    "phase_1": "pass",
+    "phase_2": "pass",
+    "phase_3": "pass",
+    "phase_4": "pass",
+    "phase_5": "pass"
+  },
+  "symmetry_lock": "8/6/8/8/8/12/6+6"
+}

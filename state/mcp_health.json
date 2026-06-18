@@ -1,0 +1,85 @@
+{
+  "mcp_roots": [
+    "/home/chas/.grok/projects/mnt-c-Users-chast/mcps"
+  ],
+  "servers": {
+    "box": {
+      "status": "schema_ok",
+      "tool_count": 29,
+      "sample_tools": [
+        "set_folder_metadata",
+        "search_files_metadata",
+        "list_tasks",
+        "create_folder",
+        "copy_file"
+      ],
+      "path": "/home/chas/.grok/projects/mnt-c-Users-chast/mcps/grok_com_box"
+    },
+    "canva": {
+      "status": "schema_ok",
+      "tool_count": 33,
+      "sample_tools": [
+        "copy-design",
+        "upload-asset-from-url",
+        "start-editing-transaction",
+        "list-folder-items",
+        "import-design-from-url"
+      ],
+      "path": "/home/chas/.grok/projects/mnt-c-Users-chast/mcps/grok_com_canva"
+    },
+    "gamma": {
+      "status": "schema_ok",
+      "tool_count": 7,
+      "sample_tools": [
+        "get_folders",
+        "read_gamma",
+        "get_gammas",
+        "generate",
+        "generate_from_template"
+      ],
+      "path": "/home/chas/.grok/projects/mnt-c-Users-chast/mcps/grok_com_gamma"
+    },
+    "github": {
+      "status": "schema_ok",
+      "tool_count": 90,
+      "sample_tools": [
+        "get_copilot_space",
+        "create_gist",
+        "get_team_members",
+        "list_tags",
+        "issue_read"
+      ],
+      "path": "/home/chas/.grok/projects/mnt-c-Users-chast/mcps/grok_com_github"
+    },
+    "linear": {
+      "status": "schema_ok",
+      "tool_count": 38,
+      "sample_tools": [
+        "get_diff",
+        "get_project",
+        "list_comments",
+        "list_documents",
+        "get_team"
+      ],
+      "path": "/home/chas/.grok/projects/mnt-c-Users-chast/mcps/grok_com_linear"
+    },
+    "vercel": {
+      "status": "schema_ok",
+      "tool_count": 19,
+      "sample_tools": [
+        "get_runtime_logs",
+        "get_project",
+        "get_deployment",
+        "change_toolbar_thread_resolve_status",
+        "web_fetch_vercel_url"
+      ],
+      "path": "/home/chas/.grok/projects/mnt-c-Users-chast/mcps/grok_com_vercel"
+    }
+  },
+  "total_tools_discovered": 216,
+  "schema_ok_count": 6,
+  "env_hint_count": 0,
+  "workflow": "discover schema \u2192 validate \u2192 use_tool (no secrets in repo)",
+  "antigravity_note": "MCP descriptors provide tool surface. Call via use_tool after validation.",
+  "symmetry_lock": "8/6/8/8/8/12/6+6"
+}

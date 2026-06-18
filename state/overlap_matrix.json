@@ -1,0 +1,193 @@
+{
+  "days": [
+    "2026-06-08",
+    "2026-06-09",
+    "2026-06-10",
+    "2026-06-11",
+    "2026-06-12",
+    "2026-06-13"
+  ],
+  "pairs": [
+    {
+      "day_a": "2026-06-08",
+      "day_b": "2026-06-09",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-08",
+      "day_b": "2026-06-10",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-08",
+      "day_b": "2026-06-11",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-08",
+      "day_b": "2026-06-12",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-08",
+      "day_b": "2026-06-13",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-09",
+      "day_b": "2026-06-10",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-09",
+      "day_b": "2026-06-11",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-09",
+      "day_b": "2026-06-12",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-09",
+      "day_b": "2026-06-13",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-10",
+      "day_b": "2026-06-11",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-10",
+      "day_b": "2026-06-12",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-10",
+      "day_b": "2026-06-13",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-11",
+      "day_b": "2026-06-12",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-11",
+      "day_b": "2026-06-13",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    },
+    {
+      "day_a": "2026-06-12",
+      "day_b": "2026-06-13",
+      "shared": [
+        "argument",
+        "grok",
+        "ingest",
+        "liv",
+        "swarm",
+        "tech"
+      ]
+    }
+  ],
+  "pair_count": 15
+}

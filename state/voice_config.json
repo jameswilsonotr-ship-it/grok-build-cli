@@ -1,0 +1,9 @@
+{
+  "pipeline": "pipecat_letta_stub",
+  "fmcsa_compliant": true,
+  "headset_mode": "driverless_audio_hat",
+  "stt_target": "hailo_whisper_quantized",
+  "tts_target": "jetson_fallback",
+  "letta_memory_layer": "micro_letta_on_usd",
+  "symmetry_lock": "8/6/8/8/8/12/6+6"
+}

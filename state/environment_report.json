@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-06-18T04:17:13.840465",
+  "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "cpu_count": 8,
+  "wsl": true,
+  "wsl_distro": "Ubuntu-26.04",
+  "cwd": "/mnt/c/Users/chast/ingest",
+  "mnt_c_present": true,
+  "virtual_env": "none",
+  "git_branch": "(error: Command '['git', 'rev-parse', '--abbrev-ref', 'HEAD']' returned non-zero exit status 128.)",
+  "git_status": "## No commits yet on main",
+  "python_packages_approx": -1,
+  "raw_backups": "/mnt/c/Users/chast/ingest/RAW_BACKUPS",
+  "working_brain": "/mnt/c/Users/chast/ingest/WORKING_BRAIN",
+  "prod_grok_readable": true,
+  "disk_free_gb": 59.47,
+  "symmetry_lock": "8/6/8/8/8/12/6+6"
+}

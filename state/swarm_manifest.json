@@ -1,0 +1,54 @@
+{
+  "roster_version": "0.1.0",
+  "hub": "hub_orchestrator",
+  "agents": [
+    {
+      "id": "hub_orchestrator",
+      "name": "Liv HUB",
+      "role": "orchestrator",
+      "phases": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "crystal",
+      "name": "Crystal",
+      "role": "slab_mad",
+      "phases": [
+        6
+      ]
+    },
+    {
+      "id": "echo",
+      "name": "Echo",
+      "role": "visual_dna",
+      "phases": [
+        5
+      ]
+    },
+    {
+      "id": "mira",
+      "name": "Mira",
+      "role": "rag_sinking",
+      "phases": [
+        3,
+        5
+      ]
+    }
+  ],
+  "phase_assignments": {
+    "harvest": "mira",
+    "audit": "crystal",
+    "overlap": "echo",
+    "dispatch": "hub_orchestrator"
+  },
+  "phase_3_output": "/mnt/c/Users/chast/ingest/valerie_out/master_tree.jsonl",
+  "phase_3_exists": true,
+  "symmetry_lock": "8/6/8/8/8/12/6+6"
+}

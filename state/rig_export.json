@@ -1,0 +1,18 @@
+{
+  "exported_at": "2026-06-18T04:12:35.357418",
+  "project": "grok-build-cli",
+  "symmetry_lock": "8/6/8/8/8/12/6+6",
+  "paths": {
+    "valerie_out": "/mnt/c/Users/chast/ingest/valerie_out",
+    "master_tree": "/mnt/c/Users/chast/ingest/valerie_out/master_tree.jsonl",
+    "state": "/mnt/c/Users/chast/ingest/state"
+  },
+  "artifacts": {
+    "environment_report": "/mnt/c/Users/chast/ingest/state/environment_report.json",
+    "mcp_health": "/mnt/c/Users/chast/ingest/state/mcp_health.json",
+    "swarm_manifest": "/mnt/c/Users/chast/ingest/state/swarm_manifest.json",
+    "overlap_matrix": "/mnt/c/Users/chast/ingest/state/overlap_matrix.json",
+    "redteam_report": "/mnt/c/Users/chast/ingest/state/redteam_report.json"
+  },
+  "irt_ready": true
+}
