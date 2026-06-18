@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: zrkwu-ckwrv
+created: 2026-06-18T08:58:51-04:00
