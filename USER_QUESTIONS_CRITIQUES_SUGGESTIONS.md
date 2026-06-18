@@ -166,5 +166,35 @@ This is considered an important architectural idea for making the system control
 
 ---
 
+**New Citations File (June 18)**
+
+A dedicated references and citations file has been created:
+
+**`reference notes/REFERENCES_AND_CITATIONS.md`**
+
+This file collects credible web sources for the key technologies and frameworks used across all our reference documents (JSON-LD, schema.org, MCP, Design Justice, Letta, Wikidata SPARQL, participatory design, etc.).
+
+The Grok Build CLI engine should treat this as part of the authoritative reference material.
+
+---
+
+**Strong Instruction to the Grok Build CLI Engine**
+
+Grok Build CLI Engine:
+
+You are now expected to **red team** this entire Memory Palace concept exhaustively.
+
+Please provide a detailed response file containing:
+- Exhaustive clarifying questions
+- Strong critiques of potential weaknesses, risks, or misalignments
+- Concrete suggestions for improvement
+- Any gaps you see in the architecture, schemas, scoping plan, or values alignment
+
+Be direct, thorough, and unafraid to challenge assumptions. We want the strongest possible version of this system.
+
+Place your response in the GitHub folder when ready.
+
+---
+
 **Next Step Recommendation**
 With these answers and notes incorporated, the foundation is now very solid. Ready to lock decisions and move to the next thin slice (e.g., implementing the bidirectional translator skeleton or the minimal visualization helper).
