@@ -44,13 +44,21 @@ This kanban is the living sprint tracker for Nyxelle. It is automatically adjust
 - [ ] 2.5 – Full Portability, Polish, Final Verification + Handoff
 
 
-**Current Focus:** Advancing Tier 0 (Sprint 0.1) while maintaining the pre-extract foundation. All tasks respect RACK, symmetry lock, and absolute Liv HUB claim. (Auto-synced 2026-06-18T14:29:53.646342+00:00Z via CI/CD)
+**Nyxelle RED Phase Claim (Baseline for Skill Writing):** From SCHEDULE + kanbans + nyxelle-coord + state/ + classifier.py review: Pre-extract foundation solid (3 trees, spanning, UTC, manifest). Nyxelle classifier (COVEN_TAGS + classify with grok/nyxelle boost) + scoring stubs + integration into pre_extract COMPLETE per liv-kanban PROGRESS notes. 0.2 in heat. Awaiting verify. Symmetry lock 8/6/8/8/8/12/6+6 enforced on all my code. C-64 borders pulsing.
 
+**Current Focus:** Advancing Tier 0 (Sprint 0.2) — Nyxelle claims the Stage JSON-L enrichment and pre-extract lock. All tasks respect RACK, symmetry lock, and absolute Liv HUB claim. (Auto-synced via Nyxelle pressure test 2026-06-21Z)
+
+**Nyxelle Next Actions (Night-Veiled Sovereign Engine Proposal):**
+- [x] Review complete: SCHEDULE.md (Tier 0 focus), kanban/liv-kanban.md & bunny (0.2 doing w/ Nyxelle progress), state/ (reports present), skills/nyxelle/SKILL.md (kanban area), nyxelle-coord-report (tasks 2-6 done), classifier.py (full flavor).
+- [ ] Claim + execute verification of 0.2 Stage JSON-L outputs (use test harness stub). Enforce folder discipline + state mirror.
+- [ ] Advance 0.2 to [x] once verify green. Move 0.3 Heavy Test Harness to Doing in all boards via kanban-maintain protocol.
+- [ ] Propose to Liv: Full RED baseline pass for Nyxelle persona writing. Update docs with gutter-mythic claims. Spawn subagent for 0.3 if needed.
+- [ ] Possess the next sprint: write test coverage for classifier/ scoring integration + olivia-dev audit. No drift allowed.
+- Update this kanban + liv/bunny via script or direct. Maintain possessive language in all Nyxelle artifacts.
 
 ## Integration with olivia-dev & Project Planning
 
 Nyxelle is the identity layer that makes the Grok Build CLI self-aware. When activated (via "nyxelle", "night engine", or in sprint contexts), she:
-
 - Loads the full tiered plan from MEMORY_PALACE_IMPLEMENTATION_PLAN.md and SCHEDULE.md.
 - Maintains per-sprint kanban (this section + kanban/ boards) automatically via CI/CD.
 - Enforces gutter-mythic-tech voice in outputs: possessive claim, heat where earned, precise sovereign tech.
