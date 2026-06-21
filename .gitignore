@@ -46,6 +46,11 @@ artifacts/large/
 *.tar.gz
 *.zip
 
+# Google Drive sync / temp files
+.tmp.driveupload/
+.tmp.drive.upload/
+tmp.drive.upload/
+
 # Grok Build specific
 state.json
 phase_progress.json
@@ -81,5 +86,6 @@ grok_build.egg-info/
 # IDE / editor
 .vscode/
 .idea/
+.vs/
 *.swp
 prod-grok-backend.json
